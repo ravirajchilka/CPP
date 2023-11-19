@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef MYLIBRARY_H_
-#define MYLIBRARY_H_
+#ifndef DTYPES_H_
+#define DTYPES_H_
 
 namespace dtypes {
 
