@@ -17,6 +17,5 @@ int main() {
     
     print_arrs<std::uint32_t>(vec);
     print_arrs<std::uint16_t>(arr);
-        
     return 0;
 };
