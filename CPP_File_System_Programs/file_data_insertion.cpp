@@ -10,7 +10,7 @@ int main() {
 
     std::ofstream outFile("testfile.txt");
 
-    outFile << a << " " << str << " "<< val << " "<< nums;
+    outFile << a << " " << str << " " << val << " "<< nums;
     // write 'T some string 9.4 30' to the testfile.txt
     outFile.close(); // flush the buffer and release the resources
 
