@@ -1,0 +1,26 @@
+Data types
+==========
+	For unsigned values append U to the number
+	std::uint16_t somevar = 30U;
+
+	Append F or f at the end of the number for floating values
+	float value = 12.0F;
+
+	auto keyword should be AAA meaning (Almost Always Auto)
+	use auto keyword wherever its possible 
+	DRY (Don't repeat yourself)
+
+	constexpr vs const
+	const variables are runtime and constexpr can be runtime or compiletime
+	Compile time evaluation and execution is faster than runtime
+	Its not guaranteed though by constexpr wheather it would be compiletime or
+	runtime for that reason use static keyword whenever constexpr declared. 
+	All the functions can be declared with constexpr keyword.
+	Function arguments type can't be constexpr
+
+	Use namespaces wherever its needed for better separation. A static keyword
+	can be added to function if its not meant to be exported. In modern C++ approach
+	anonymous namespace can wrap function without needing of static keyword. Named
+	namespaces functions are exported to the outside
+
+	
