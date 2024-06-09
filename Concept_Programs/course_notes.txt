@@ -23,4 +23,13 @@ Data types
 	anonymous namespace can wrap function without needing of static keyword. Named
 	namespaces functions are exported to the outside
 
+	C styled arrays have constant length. Always use C++ styled arrays in CPP coding.
+	Use std::array, its a static array, the length can't be modified during runtime. Always use size_t 
+	data type. Use template and declare N so that function becomes reusable for any length of array.
 	
+
+Functions	
+=========	
+	When passing arrays as an argument to a function its always better to pass &(address) of array 
+	otherwise function will create a local variable which may lead to memory wastage. Always pass it
+	by reference.
