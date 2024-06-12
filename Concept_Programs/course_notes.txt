@@ -33,3 +33,26 @@ Functions
 	When passing arrays as an argument to a function its always better to pass &(address) of array 
 	otherwise function will create a local variable which may lead to memory wastage. Always pass it
 	by reference.
+
+	In a function argument if a constant value is passed and the argument data type is not defined 
+	with const keyword then compilers throws error. Good practice is whenever you have rvalue,
+	that is the value with no name or memory address, the function accepting the rvalue should have
+	const declared argument. For example 
+		std::uint16_t test(const std::uint16_t &num) {
+    		return num;
+		}
+		test(70);
+
+
+Pointers
+========
+	Wherever possible use references instead of pointer to pass in the functions
+
+	Unique pointer is type of smart pointer and its used when we dont want to make multiple copies 
+	of a pointer which points to same memory location. If there is no need of creating the copies of 
+	a pointer then use Unique pointer. Also unlike C language pointer a Unique pointer calls destructor 
+	once the function call is finished so no need of delete[] is required.
+
+	Shared pointer can lead to cycle references if one pointer creates another pointer and vice versa.
+	To overcome this issue use weak pointer along with shared pointer.
+	

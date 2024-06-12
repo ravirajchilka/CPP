@@ -1,59 +1,80 @@
 {
-  "C_Cpp_Runner.cCompilerPath": "gcc",
-  "C_Cpp_Runner.cppCompilerPath": "gcc",
-  "C_Cpp_Runner.debuggerPath": "gdb",
-  "C_Cpp_Runner.cStandard": "",
-  "C_Cpp_Runner.cppStandard": "",
-  "C_Cpp_Runner.msvcBatchPath": "C:/Program Files/Microsoft Visual Studio/VR_NR/Community/VC/Auxiliary/Build/vcvarsall.bat",
-  "C_Cpp_Runner.useMsvc": false,
-  "C_Cpp_Runner.warnings": [
-    "-Wall",
-    "-Wextra",
-    "-Wpedantic",
-    "-Wshadow",
-    "-Wformat=2",
-    "-Wcast-align",
-    "-Wconversion",
-    "-Wsign-conversion",
-    "-Wnull-dereference"
-  ],
-  "C_Cpp_Runner.msvcWarnings": [
-    "/W4",
-    "/permissive-",
-    "/w14242",
-    "/w14287",
-    "/w14296",
-    "/w14311",
-    "/w14826",
-    "/w44062",
-    "/w44242",
-    "/w14905",
-    "/w14906",
-    "/w14263",
-    "/w44265",
-    "/w14928"
-  ],
-  "C_Cpp_Runner.enableWarnings": true,
-  "C_Cpp_Runner.warningsAsError": false,
-  "C_Cpp_Runner.compilerArgs": [],
-  "C_Cpp_Runner.linkerArgs": [],
-  "C_Cpp_Runner.includePaths": [],
-  "C_Cpp_Runner.includeSearch": [
-    "*",
-    "**/*"
-  ],
-  "C_Cpp_Runner.excludeSearch": [
-    "**/build",
-    "**/build/**",
-    "**/.*",
-    "**/.*/**",
-    "**/.vscode",
-    "**/.vscode/**"
-  ],
-  "C_Cpp_Runner.useAddressSanitizer": false,
-  "C_Cpp_Runner.useUndefinedSanitizer": false,
-  "C_Cpp_Runner.useLeakSanitizer": false,
-  "C_Cpp_Runner.showCompilationTime": false,
-  "C_Cpp_Runner.useLinkTimeOptimization": false,
-  "C_Cpp_Runner.msvcSecureNoWarnings": false
+  "workbench.colorCustomizations": {
+      "terminal.foreground" : "#8ab43e"
+    },
+    "saveAndRun": {
+
+        "commands": [
+          {
+            "match": ".cpp",
+            "cmd": "g++ cpppractice.cpp -std=c++20",
+            "useShortcut": false,
+            "silent": false
+          },
+          {
+            "match": "\\.cpp$",
+            "cmd": "a.exe",
+            "useShortcut": false,
+            "silent": false
+          },
+            {
+              "match": "practice.py",
+              "cmd": " & c:/Users/ravir/OneDrive/Documents/Python/pandasenv/Scripts/python.exe c:/Users/ravir/OneDrive/Documents/Python/pythonpractice/practice.py",
+              "useShortcut": false,
+              "silent": false
+            }
+          ]
+    },
+    "terminal.integrated.fontSize": 14,
+    "[bibtex]": {},
+    "idf.espIdfPathWin": "d:\\DOCUMENTS\\ESP32projects\\esp\\esp-idf",
+    "idf.pythonBinPathWin": "d:\\DOCUMENTS\\ESP32projects\\tools\\python_env\\idf5.1_py3.11_env\\Scripts\\python.exe",
+    "idf.toolsPathWin": "d:\\DOCUMENTS\\ESP32projects\\tools",
+    "idf.customExtraPaths": "d:\\DOCUMENTS\\ESP32projects\\tools\\tools\\xtensa-esp-elf-gdb\\12.1_20221002\\xtensa-esp-elf-gdb\\bin;d:\\DOCUMENTS\\ESP32projects\\tools\\tools\\riscv32-esp-elf-gdb\\12.1_20221002\\riscv32-esp-elf-gdb\\bin;d:\\DOCUMENTS\\ESP32projects\\tools\\tools\\xtensa-esp32-elf\\esp-12.2.0_20230208\\xtensa-esp32-elf\\bin;d:\\DOCUMENTS\\ESP32projects\\tools\\tools\\xtensa-esp32s2-elf\\esp-12.2.0_20230208\\xtensa-esp32s2-elf\\bin;d:\\DOCUMENTS\\ESP32projects\\tools\\tools\\xtensa-esp32s3-elf\\esp-12.2.0_20230208\\xtensa-esp32s3-elf\\bin;d:\\DOCUMENTS\\ESP32projects\\tools\\tools\\riscv32-esp-elf\\esp-12.2.0_20230208\\riscv32-esp-elf\\bin;d:\\DOCUMENTS\\ESP32projects\\tools\\tools\\esp32ulp-elf\\2.35_20220830\\esp32ulp-elf\\bin;d:\\DOCUMENTS\\ESP32projects\\tools\\tools\\cmake\\3.24.0\\bin;d:\\DOCUMENTS\\ESP32projects\\tools\\tools\\openocd-esp32\\v0.12.0-esp32-20230921\\openocd-esp32\\bin;d:\\DOCUMENTS\\ESP32projects\\tools\\tools\\ninja\\1.10.2;d:\\DOCUMENTS\\ESP32projects\\tools\\tools\\idf-exe\\1.0.3;d:\\DOCUMENTS\\ESP32projects\\tools\\tools\\ccache\\4.8\\ccache-4.8-windows-x86_64;d:\\DOCUMENTS\\ESP32projects\\tools\\tools\\dfu-util\\0.11\\dfu-util-0.11-win64;d:\\DOCUMENTS\\ESP32projects\\tools\\tools\\esp-rom-elfs\\20230320",
+    "idf.customExtraVars": {
+      "OPENOCD_SCRIPTS": "d:\\DOCUMENTS\\ESP32projects\\tools\\tools\\openocd-esp32\\v0.12.0-esp32-20230921/openocd-esp32/share/openocd/scripts",
+      "IDF_CCACHE_ENABLE": "1",
+      "ESP_ROM_ELF_DIR": "d:\\DOCUMENTS\\ESP32projects\\tools\\tools\\esp-rom-elfs\\20230320/"
+    },
+    "idf.gitPathWin": "d:\\DOCUMENTS\\ESP32projects\\tools\\tools\\idf-git\\2.39.2\\cmd\\git.exe",
+    "cmake.configureOnOpen": true,
+    "workbench.sideBar.location": "right",
+    "workbench.colorTheme": "GitHub Dark Default",
+    "lldb.dbgconfig": {},
+    "C_Cpp_Runner.cppCompilerPath": "gcc",
+    "cmake.additionalCompilerSearchDirs": [
+      "C:/msys64/mingw32/bin",
+      "C:/msys64/mingw64/bin",
+      "C:/msys64/clang32/bin",
+      "C:/msys64/clang64/bin",
+      "C:/msys64/clangarm64/bin",
+      "C:/msys64/ucrt64/bin"
+    ],
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "C_Cpp.default.includePath": [
+      "C:\\msys64\\mingw64\\include"
+    ],
+    "editor.fontSize": 12.7,
+    "git.autofetch": true,
+    "[verilog]": {
+      "editor.defaultFormatter": "mshr-h.veriloghdl"
+    },
+    "lushay.OssCadSuite.path": "C:\\Users\\ravir\\Downloads\\oss-cad-suite\\bin",
+    "[javascript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "workbench.editorLargeFileConfirmation": 20,
+    "[systemverilog]": {
+      "editor.defaultFormatter": "mshr-h.veriloghdl"
+    },
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always"
 }
+
+
