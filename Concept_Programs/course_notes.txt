@@ -32,7 +32,10 @@ Functions
 =========	
 	When passing arrays as an argument to a function its always better to pass &(address) of array 
 	otherwise function will create a local variable which may lead to memory wastage. Always pass it
-	by reference.
+	by reference and also when the argument will be changed in that case too use reference. If the 
+	data type is not an array then no need to pass by reference because passing reference would 
+	create overhead. If for example in case of integer its better to create copy inside the function 
+	than passing it by reference.
 
 	In a function argument if a constant value is passed and the argument data type is not defined 
 	with const keyword then compilers throws error. Good practice is whenever you have rvalue,
