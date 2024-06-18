@@ -3,7 +3,7 @@
 #include <random>
 #include <vector>
 
-constexpr static auto NUM_ELEMENTS = 1000000U;
+static constexpr auto NUM_ELEMENTS = 1000000U;
 
 int main() {
     auto my_vector = std::vector<std::int32_t> {NUM_ELEMENTS,0U};
