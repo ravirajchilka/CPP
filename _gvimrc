@@ -1,6 +1,10 @@
-" Set theme and font properties
 colorscheme desert
 set guifont=Fixedsys:h10:cANSI:qDRAFT
+
+" Indent right with Tab in visual mode
+vnoremap <Tab> >gv
+" Indent left with Shift-Tab in visual mode
+vnoremap <S-Tab> <gv
 
 " Enable the sign column
 set signcolumn=yes
@@ -14,7 +18,7 @@ set relativenumber
 " Set tab width
 set softtabstop=4
 
-autocmd FileType cpp nnoremap <C-s> :w <CR> :call CloseExistingTerminal() <CR> :rightbelow vert term ++cols=50 <CR>  g++ -std=c++20 -O2 -Wall test.cpp -o test && test.exe <CR> 
+autocmd FileType cpp nnoremap <C-s> :w <CR> :call CloseExistingTerminal() <CR> :rightbelow vert term ++cols=70 <CR>  g++ -std=c++20 -O2 -Wall test.cpp -o test && test.exe <CR> 
 
 function! CloseExistingTerminal()
     " Loop through all buffers
@@ -28,12 +32,11 @@ function! CloseExistingTerminal()
 endfunction
 
 
+autocmd FileType javascript nnoremap <C-s> :w <CR> :call CloseExistingTerminal() <CR> :rightbelow vert term ++cols=70 <CR> node test.js <CR> 
 
+"nnoremap <silent> <C-c> i for() { };<Esc>i
 
-
-
-
-
+nnoremap <silent> <C-c> i console.log();<Esc>i
 
 
 
