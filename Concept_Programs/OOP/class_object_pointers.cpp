@@ -25,10 +25,9 @@ int main() {
 
     Table Table1(4.3,5.6,2.5); // Table1 is object
     
-    Table* ptrTable; // declaration of pointer to class
+    Table *ptrTable; // declaration of pointer to class
     
     ptrTable = &Table1;
     // now access the class memebrs using pointer using access -> operator
-    std::cout << "Volume of table is :" << ptrTable->Volume();
+    std::cout << "Volume of table is: " << ptrTable->Volume();
 }
-
