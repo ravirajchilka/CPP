@@ -31,5 +31,5 @@ int main() {
     // now access the class memebrs using pointer using access -> operator
     std::cout << "Volume of table is: " << ptrTable->Volume();
 
-	retun 0;
+	return 0;
 }
