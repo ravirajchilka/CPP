@@ -1,4 +1,6 @@
 /*
+We can not std::cout << c1; for this reason we would need iostream operator ovearloading 
+
 Basic std::cout behavior with classes:
 You can use std::cout to print class details without overloading the << operator, but with some limitations:
 

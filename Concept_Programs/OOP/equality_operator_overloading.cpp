@@ -1,3 +1,7 @@
+/*
+We can not directly compare two class instances like c1 == c2 for this reason we would need 
+equality operator overloading */
+
 #include <iostream>
 #include <string>
 #include <cstdint>
