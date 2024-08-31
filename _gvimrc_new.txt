@@ -1,0 +1,96 @@
+call plug#begin('~/vimfiles/plugged')
+Plug 'ilyachur/cmake4vim'
+call plug#end()
+
+command! CMakeGenerate !cmake -S . -B build
+command! CMakeBuild !cmake --build build
+
+colorscheme desert
+set guifont=Fixedsys:h10:cANSI:qDRAFT
+
+" Below line would remove ^M from editor
+set fileformats=unix,dos
+
+" Indent right with Tab in visual mode
+vnoremap <Tab> >gv
+" Indent left with Shift-Tab in visual mode
+vnoremap <S-Tab> <gv
+
+" Enable the sign column
+set signcolumn=yes
+
+" Set the width of the number column (adjust the number as needed)
+set numberwidth=1
+
+" Set relative line numbers
+" set relativenumber
+
+set number
+
+" Set tab width
+set softtabstop=4
+
+
+
+
+" autocmd FileType javascript nnoremap <C-s> :w <CR> :call CloseExistingTerminal() <CR> :rightbelow vert term ++cols=70 <CR> node test.js <CR> 
+
+" nnoremap <silent> <C-c> i for() { };<Esc>i
+
+" nnoremap <silent> <C-c> i console.log();<Esc>i
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""  Configurations for CMake Build System """"""""""""""""""""""""
+ 
+""""""""""""""""" Delete the regular CPP configs to run CMake """"""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Function to close existing terminal
+function! CloseExistingTerminal()
+    for buf in range(1, bufnr('$'))
+        if getbufvar(buf, '&buftype') == 'terminal'
+            execute 'bdelete! '.buf
+        endif
+    endfor
+endfunction
+
+" Function to build and run CMake project
+function! BuildAndRunCMake()
+    " Save the current file
+    write
+    " Close existing terminal
+    call CloseExistingTerminal()
+    " Open a new terminal
+    rightbelow vertical terminal ++cols=70
+    " Navigate to build directory, build and run
+    call term_sendkeys(bufnr(''), "cmake --build build --config Release && .\\build\\Release\\MyApp.exe\n")
+endfunction
+
+" Map Ctrl+S to build and run for C++ files
+autocmd FileType cpp nnoremap <C-s> :call BuildAndRunCMake()<CR>
+
+" Command to generate CMake files (run this when CMakeLists.txt changes)
+command! CMakeGen :!cmake -S . -B build
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""" Configurations for regular CPP file execution """"""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType cpp nnoremap <C-s> :w <CR> :call CloseExistingTerminal() <CR> :rightbelow vert term ++cols=70 <CR>  g++ -std=c++20 -O2 -Wall test.cpp -o test && test.exe <CR> 
+
+function! CloseExistingTerminal()
+    " Loop through all buffers
+    for buf in range(1, bufnr('$'))
+        " Check if the buffer is a terminal
+        if getbufvar(buf, '&buftype') == 'terminal'
+            " Close the terminal buffer
+            execute 'bdelete! '.buf
+        endif
+    endfor
+endfunction
+
