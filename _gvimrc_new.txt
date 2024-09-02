@@ -1,6 +1,27 @@
 call plug#begin('~/vimfiles/plugged')
 Plug 'ilyachur/cmake4vim'
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clangd-completer' }
 call plug#end()
+
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+syntax on
+filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
+
+autocmd BufRead,BufNewFile CMakeLists.txt set filetype=cmake
+
+autocmd FileType cpp setlocal ts=2 sts=2 sw=2 expandtab
+
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
+nnoremap <leader>jf :YcmCompleter FixIt<CR>
+
+
+" To select text from Terminal, use i command to keep running the terminal
+tnoremap <C-t> <C-\><C-N>
+
 
 command! CMakeGenerate !cmake -S . -B build
 command! CMakeBuild !cmake --build build
@@ -10,6 +31,8 @@ set guifont=Fixedsys:h10:cANSI:qDRAFT
 
 " Below line would remove ^M from editor
 set fileformats=unix,dos
+
+
 
 " Indent right with Tab in visual mode
 vnoremap <Tab> >gv
@@ -38,6 +61,26 @@ set softtabstop=4
 " nnoremap <silent> <C-c> i for() { };<Esc>i
 
 " nnoremap <silent> <C-c> i console.log();<Esc>i
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""" Configurations for regular CPP file execution """"""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType cpp nnoremap <C-s> :w <CR> :call CloseExistingTerminal() <CR> :rightbelow vert term ++cols=70 <CR>  g++ -std=c++20 -O2 -Wall test.cpp -o test && test.exe <CR> 
+
+function! CloseExistingTerminal()
+    " Loop through all buffers
+    for buf in range(1, bufnr('$'))
+        " Check if the buffer is a terminal
+        if getbufvar(buf, '&buftype') == 'terminal'
+            " Close the terminal buffer
+            execute 'bdelete! '.buf
+        endif
+    endfor
+endfunction
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -75,22 +118,6 @@ autocmd FileType cpp nnoremap <C-s> :call BuildAndRunCMake()<CR>
 command! CMakeGen :!cmake -S . -B build
 
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""" Configurations for regular CPP file execution """"""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType cpp nnoremap <C-s> :w <CR> :call CloseExistingTerminal() <CR> :rightbelow vert term ++cols=70 <CR>  g++ -std=c++20 -O2 -Wall test.cpp -o test && test.exe <CR> 
-
-function! CloseExistingTerminal()
-    " Loop through all buffers
-    for buf in range(1, bufnr('$'))
-        " Check if the buffer is a terminal
-        if getbufvar(buf, '&buftype') == 'terminal'
-            " Close the terminal buffer
-            execute 'bdelete! '.buf
-        endif
-    endfor
-endfunction
+" Manual command
+" cmake --build build --config Release && .\build\Release\MyApp.exe
 
