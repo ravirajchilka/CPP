@@ -41,7 +41,7 @@ void showAllSupes(std::vector<SuperHero>& supesVector) {
     }
 };
 
-void addSuperHeros(std::vector<SuperHero>& newSupesCollection, SuperHero supe) {
+void addSuperHeros(std::vector<SuperHero>& newSupesCollection, const SuperHero supe) {
     newSupesCollection.emplace_back(supe);
 };
 
