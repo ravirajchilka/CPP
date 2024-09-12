@@ -4,7 +4,6 @@
 #include <vector>
 
 class SuperHero {
-
     public:
         float rating;
         std::string name;
@@ -15,9 +14,9 @@ class SuperHero {
         }
 };
 
-void showAllSupes(std::vector<SuperHero>& supesArray) {
+void showAllSupes(std::vector<SuperHero>& supesVector) {
     std::uint8_t order = 1;
-    for(const auto& supes: supesArray) {
+    for(const auto& supes: supesVector) {
         std::cout << "["<<static_cast<int>(order) << "]" << std::endl;
         std::cout << "name:" << supes.name << std::endl; 
         std::cout << "rating: " << supes.rating << std::endl;
@@ -42,10 +41,19 @@ void showAllSupes(std::vector<SuperHero>& supesArray) {
     }
 };
 
-void addSuperHeros(std::vector<SuperHero>& newSupesCollection, const SuperHero supe) {
+void addSuperHeros(std::vector<SuperHero>& newSupesCollection, SuperHero supe) {
     newSupesCollection.emplace_back(supe);
 };
 
+void deleteSupe(std::vector<SuperHero>& supeCollection, const std::string& name) {
+    for(auto it=supeCollection.begin();it!=supeCollection.end();) {
+        if(it->name == name) {
+            supeCollection.erase(it);
+        } else {
+            it++;
+        }
+    }
+};
 
 int main() {
 
@@ -77,6 +85,15 @@ int main() {
                 )
             );
 
+    // showAllSupes(superHeroCollection);
+
+    deleteSupe(superHeroCollection,"The Question");
+    deleteSupe(superHeroCollection,"Jean Grey");
+    deleteSupe(superHeroCollection,"Wolverine");
+
     showAllSupes(superHeroCollection);
     return 0;
 }
+
+
+
