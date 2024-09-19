@@ -1,6 +1,4 @@
-#include <cstdint>
 #include <iostream>
-#include <string>
 
 
 class A1 {
@@ -24,7 +22,8 @@ class A2 {
 };
 
 class S:public A1,public A2 {
-  
+ 
+  public: 
     S() {
       std::cout << "Derived/child of the base claass S" << std::endl;
     }
@@ -35,6 +34,8 @@ class S:public A1,public A2 {
 int main() {
 
   S myobj;
+
+  return 0;
 
 
 }
