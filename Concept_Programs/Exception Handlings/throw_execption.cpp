@@ -8,7 +8,7 @@ int main() {
     if(age>=18) {
       std::cout << "Your eligibility to apply driving license" << std::endl;
     } else {
-      throw 505;    
+      throw 505; // throw exception     
     }
   }
 
@@ -18,5 +18,6 @@ int main() {
   }
 
   return 0;
+  
 }
 
