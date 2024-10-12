@@ -3,7 +3,8 @@
 #include <string>
 #include <vector>
 
-class SuperHero {
+class SuperHero 
+{
     public:
         float rating;
         std::string name;
@@ -14,7 +15,9 @@ class SuperHero {
         }
 };
 
-void showAllSupes(std::vector<SuperHero>& supesVector) {
+
+void showAllSupes(std::vector<SuperHero>& supesVector) 
+{   
     std::uint8_t order = 1;
     for(const auto& supes: supesVector) {
         std::cout << "["<<static_cast<int>(order) << "]" << std::endl;
@@ -41,11 +44,15 @@ void showAllSupes(std::vector<SuperHero>& supesVector) {
     }
 };
 
-void addSuperHeros(std::vector<SuperHero>& newSupesCollection, const SuperHero supe) {
+
+void addSuperHeros(std::vector<SuperHero>& newSupesCollection, const SuperHero supe) 
+{
     newSupesCollection.emplace_back(supe);
 };
 
-void deleteSupe(std::vector<SuperHero>& supeCollection, const std::string& name) {
+
+void deleteSupe(std::vector<SuperHero>& supeCollection, const std::string& name) 
+{    
     for(auto it=supeCollection.begin();it!=supeCollection.end();) {
         if(it->name == name) {
             supeCollection.erase(it);
@@ -55,8 +62,9 @@ void deleteSupe(std::vector<SuperHero>& supeCollection, const std::string& name)
     }
 };
 
-int main() {
 
+int main() 
+{
     auto superHeroCollection = std::vector<SuperHero>{
         SuperHero(9.5, "Superman", {"flight", "super strength"}),
         SuperHero(9.0, "Wonder Woman", {"super strength", "lasso of truth", "flight"}),
