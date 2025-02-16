@@ -4,16 +4,16 @@
 #include <tuple>
 
 int main() {
-
-   std::tuple<int, double, std::string> myTuple(42, 3.14, "Hello");
+    std::tuple<int, double, std::string> myTuple(42, 3.14, "Hello");
 
     // Get the length of the tuple using std::tuple_size
-    std::size_t length = std::tuple_size<decltype(myTuple)>::value;
+    constexpr std::size_t length = std::tuple_size_v<decltype(myTuple)>;
 
     // Iterate through the tuple and display its values
-    for (auto i = 0; i < length; i++) {
-        std::cout << "Element " << i << ": " << std::get<i>(myTuple) << std::endl;
-    }
+    [&]<std::size_t... I>(std::index_sequence<I...>) {
+        ((std::cout << "Element " << I << ": " << std::get<I>(myTuple) << std::endl), ...);
+    }(std::make_index_sequence<length>{});
 
     return 0;
-};
+}
+
